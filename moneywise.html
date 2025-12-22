@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyWise - Kelola Keuangan dengan Lebih Cerdas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+    --primary-color: #7c3aed;
+    --primary-light: #8b5cf6;
+    --primary-dark: #5b21b6;
+    --secondary-color: #1f2937;
+    --accent-color: #10b981;
+    --light-color: #f9fafb;
+    --dark-color: #111827;
+    --text-light: #f3f4f6;
+    --text-dark: #1f2937;
+    --gradient-primary: linear-gradient(135deg, #7c3aed, #5b21b6);
+    --gradient-accent: linear-gradient(135deg, #10b981, #059669);
+    --gradient-dark: linear-gradient(135deg, #1f2937, #111827);
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fafb;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+.navbar {
+    background-color: var(--dark-color) !important;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 0.7rem 0;
+    background-color: rgba(17, 24, 39, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: white !important;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-moneywise {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-size: 1rem;
+    margin-left: -8%;
+    margin-top: 6%;
+    font-weight: 600;
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: papayawhip;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: white !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    left: 40%;
+    bottom: -5px;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 80%;
+}
+
+.btn-header {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.btn-header:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    color: white;
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -400px;
+    right: -200px;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -300px;
+    left: -100px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-hero {
+    background: white;
+    color: var(--primary-dark);
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.btn-hero:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    color: var(--primary-dark);
+}
+
+.btn-hero-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.hero-phone-mockup {
+    position: relative;
+    perspective: 1000px;
+}
+
+.phone-mockup {
+    width: 280px;
+    height: 560px;
+    background: var(--gradient-dark);
+    border-radius: 40px;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transform: rotateY(-10deg);
+    transition: transform 0.5s ease;
+}
+
+.hero-phone-mockup:hover .phone-mockup {
+    transform: rotateY(-5deg) translateY(-10px);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 20px;
+    background: var(--dark-color);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+}
+
+/* Features Section */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    color: #6b7280;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 1px solid #f3f4f6;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: white;
+    background: var(--gradient-primary);
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0) 70%);
+    top: -250px;
+    right: -150px;
+}
+
+.stats-card {
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.stats-number {
+    font-size: 3rem;
+    font-weight: 600;
+    background: linear-gradient(50deg, #a78bfa, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-label {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+.stats-label1 {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Demo Preview Section */
+.demo-section {
+    padding: 6rem 0;
+    background-color: #f9fafb;
+}
+
+.demo-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.demo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.demo-header {
+    padding: 2rem;
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.demo-body {
+    padding: 2rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    padding: 6rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -300px;
+    right: -200px;
+}
+
+.cta-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.cta-subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.cta-button {
+    background: white;
+    color: var(--primary-dark);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    color: var(--primary-dark);
+}
+
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: #9ca3af;
+    padding: 5rem 0 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo-img {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.footer-logo-text {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.footer-title {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .phone-mockup {
+        width: 240px;
+        height: 480px;
+        margin: 0 auto;
+    }
+    
+    .cta-title {
+        font-size: 2.2rem;
+    }
+    
+    .stats-number {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .btn-hero, .btn-hero-outline {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+    </style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo-container">
+                    <img src="Image/logo.png" alt="" class="logo-moneywise">
+                    <span class="logo-text">MoneyWise</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Fitur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stats">Statistik</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a class="btn btn-header" href="#download">Mulai Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="hero-title animate-on-scroll">Kelola Keuangan dengan Lebih <span class="text-warning">Cerdas</span></h1>
+                    <p class="hero-subtitle animate-on-scroll">MoneyWise adalah aplikasi keuangan all-in-one untuk mengelola transaksi, investasi crypto, dan belajar keuangan pribadi. Mulai perjalanan finansial yang lebih baik hari ini.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3 mb-4 animate-on-scroll">
+                        <a href="#download" class="btn btn-hero">
+                            <i class="bi bi-google-play me-2"></i> Download Gratis
+                        </a>
+                        <a href="#demo" class="btn btn-hero-outline">
+                            <i class="bi bi-play-circle me-2"></i> Lihat Demo
+                        </a>
+                    </div>
+                    
+                    <div class="animate-on-scroll">
+                        <p class="mb-2 opacity-75">Sudah digunakan oleh lebih dari <strong>500.000+</strong> pengguna</p>
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                                <span class="ms-1">4.7/5</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-download text-light"></i>
+                                <span class="ms-1">50K+ downloads bulan ini</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- App Mockup -->
+                <div class="col-lg-6">
+                    <div class="hero-phone-mockup animate-on-scroll">
+                        <div class="phone-mockup mx-auto">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div style="padding: 1.5rem; background: linear-gradient(135deg, #7c3aed, #5b21b6); border-radius: 30px 30px 20px 20px; color: white;">
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">SALDO ANDA</div>
+                                    <div style="font-size: 1.8rem; font-weight: 700; margin: 0.2rem 0;">RP 1.250.000</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.9;">0,017 ETH (≈ Rp 850.000)</div>
+                                </div>
+                                
+                                <div style="display: flex; justify-content: space-around; margin: 1.5rem 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="width: 50px; height: 50px; border-radius: 15px; background: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: #7c3aed; font-size: 1.3rem;">
+                                            <i class="bi bi-lightning-charge"></i>
+                                        </div>
+                                        <small>Pulsa</small>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="width: 50px; height: 50px; border-radius: 15px; background: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: #7c3aed; font-size: 1.3rem;">
+                                            <i class="bi bi-wifi"></i>
+                                        </div>
+                                        <small>Wi-Fi</small>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="width: 50px; height: 50px; border-radius: 15px; background: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: #7c3aed; font-size: 1.3rem;">
+                                            <i class="bi bi-currency-exchange"></i>
+                                        </div>
+                                        <small>Transfer</small>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="width: 50px; height: 50px; border-radius: 15px; background: white; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: #7c3aed; font-size: 1.3rem;">
+                                            <i class="bi bi-receipt"></i>
+                                        </div>
+                                        <small>Tagihan</small>
+                                    </div>
+                                </div>
+                                
+                                <div style="padding: 0 1rem;">
+                                    <h6 style="margin-bottom: 1rem; color: #374151;">Transaksi Terbaru</h6>
+                                    <div style="display: flex; align-items: center; padding: 0.8rem; background: white; border-radius: 12px; margin-bottom: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                        <div style="width: 40px; height: 40px; border-radius: 10px; background: #7c3aed; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.8rem;">
+                                            <i class="bi bi-lightning-charge"></i>
+                                        </div>
+                                        <div style="flex-grow: 1;">
+                                            <div style="font-weight: 600;">Pulsa</div>
+                                            <small style="color: #9ca3af;">19 Nov 2025, 18:00</small>
+                                        </div>
+                                        <div style="font-weight: 700; color: #ef4444;">- Rp 50.000</div>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: center; padding: 0.8rem; background: white; border-radius: 12px; margin-bottom: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                        <div style="width: 40px; height: 40px; border-radius: 10px; background: #10b981; display: flex; align-items: center; justify-content: center; color: white; margin-right: 0.8rem;">
+                                            <i class="bi bi-arrow-down-circle"></i>
+                                        </div>
+                                        <div style="flex-grow: 1;">
+                                            <div style="font-weight: 600;">Gaji Bulanan</div>
+                                            <small style="color: #9ca3af;">18 Nov 2025, 10:00</small>
+                                        </div>
+                                        <div style="font-weight: 700; color: #10b981;">+ Rp 5.000.000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title animate-on-scroll">Fitur Unggulan MoneyWise</h2>
+                <p class="section-subtitle animate-on-scroll">Dilengkapi dengan berbagai fitur canggih untuk membantu Anda mencapai tujuan keuangan dengan lebih mudah</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="bi bi-wallet2"></i>
+                        </div>
+                        <h4 class="mb-3">Manajemen Keuangan</h4>
+                        <p class="text-muted mb-4">Kelola semua transaksi, buat anggaran, dan lacak pengeluaran dengan mudah dalam satu aplikasi.</p>
+                        <a href="#demo" class="text-primary fw-bold text-decoration-none">
+                            Pelajari lebih lanjut <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="bi bi-currency-bitcoin"></i>
+                        </div>
+                        <h4 class="mb-3">Investasi Crypto</h4>
+                        <p class="text-muted mb-4">Mulai investasi cryptocurrency dengan panduan lengkap dan monitoring real-time portfolio Anda.</p>
+                        <a href="#demo" class="text-primary fw-bold text-decoration-none">
+                            Mulai investasi <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="bi bi-journal-bookmark"></i>
+                        </div>
+                        <h4 class="mb-3">Edukasi Keuangan</h4>
+                        <p class="text-muted mb-4">Akses konten edukasi interaktif tentang keuangan pribadi, investasi, dan perencanaan masa depan.</p>
+                        <a href="#demo" class="text-primary fw-bold text-decoration-none">
+                            Mulai belajar <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="text-white animate-on-scroll">MoneyWise dalam Angka</h2>
+                <p class="text-light opacity-75 animate-on-scroll">Bukti nyata kepercayaan pengguna terhadap aplikasi MoneyWise</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stats-card animate-on-scroll">
+                        <div class="stats-number">50+</div>
+                        <div class="stats-label">Ribu</div>
+                        <div class="stats-label1">Pengguna Aktif</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-card animate-on-scroll">
+                        <div class="stats-number">4 </div>
+                        <div class="stats-label"></div>
+                        <div class="stats-label1">Rating Aplikasi</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-card animate-on-scroll">
+                        <div class="stats-number">100+ </div>
+                        <div class="stats-label"></div>
+                        <div class="stats-label1">Konten Edukasi</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-card animate-on-scroll">
+                        <div class="stats-number">100+ </div>
+                        <div class="stats-label">Ribu </div>
+                        <div class="stats-label1">Aplikasi Terunduh</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 animate-on-scroll">
+                <h3 class="text-white mb-3">Bergabunglah dengan komunitas pengguna MoneyWise</h3>
+                <a href="#download" class="btn btn-hero">
+                    <i class="bi bi-people-fill me-2"></i> Gabung Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Preview Section -->
+    <section id="demo" class="demo-section">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title animate-on-scroll">Coba Demo Interaktif</h2>
+                <p class="section-subtitle animate-on-scroll">Jelajahi fitur-fitur utama MoneyWise tanpa perlu mendownload aplikasi</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="demo-card animate-on-scroll">
+                        <div class="demo-header">
+                            <h3 class="text-white mb-0">Demo Interaktif MoneyWise</h3>
+                            <p class="text-light opacity-75 mb-0">Jelajahi semua fitur dengan simulasi langsung</p>
+                        </div>
+                        <div class="demo-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 mb-4 mb-md-0">
+                                    <h4 class="mb-3">Dashboard Utama</h4>
+                                    <p class="text-muted mb-4">Lihat bagaimana MoneyWise menampilkan saldo, transaksi terbaru, dan akses cepat ke semua fitur.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Pantau saldo secara real-time</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Lacak pengeluaran harian</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Akses cepat ke semua fitur</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="border rounded-3 p-3 bg-light">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div>
+                                                <div class="fw-bold">Dashboard MoneyWise</div>
+                                                <small class="text-muted">Simulasi langsung</small>
+                                            </div>
+                                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; color: white; font-weight: bold;">BS</div>
+                                        </div>
+                                        <div class="bg-primary text-white p-3 rounded-3 mb-3">
+                                            <small>SALDO ANDA</small>
+                                            <div class="fs-4 fw-bold">RP 1.250.000</div>
+                                            <small>0,017 ETH (≈ Rp 850.000)</small>
+                                        </div>
+                                        <div class="row text-center g-2">
+                                            <div class="col-3">
+                                                <div class="p-2 bg-white rounded-3">
+                                                    <i class="bi bi-lightning-charge text-primary fs-5"></i>
+                                                    <small class="d-block mt-1">Pulsa</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-2 bg-white rounded-3">
+                                                    <i class="bi bi-wifi text-primary fs-5"></i>
+                                                    <small class="d-block mt-1">Wi-Fi</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-2 bg-white rounded-3">
+                                                    <i class="bi bi-currency-exchange text-primary fs-5"></i>
+                                                    <small class="d-block mt-1">Transfer</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="p-2 bg-white rounded-3">
+                                                    <i class="bi bi-receipt text-primary fs-5"></i>
+                                                    <small class="d-block mt-1">Tagihan</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="demo.html" class="btn btn-header px-5">
+                                    <i class="bi bi-play-circle me-2"></i> Buka Demo Lengkap
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download" class="cta-section">
+        <div class="container text-center position-relative" style="z-index: 10;">
+            <h2 class="cta-title animate-on-scroll">Siap Mengubah Cara Anda Mengelola Keuangan?</h2>
+            <p class="cta-subtitle animate-on-scroll">Download MoneyWise sekarang secara gratis dan mulai kontrol keuangan Anda dengan lebih baik. Tersedia untuk iOS dan Android.</p>
+            
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-5 animate-on-scroll">
+                <a href="#" class="btn cta-button">
+                    <i class="bi bi-google-play me-2"></i> Download di Play Store
+                </a>
+                <a href="#" class="btn cta-button">
+                    <i class="bi bi-apple me-2"></i> Download di App Store
+                </a>
+            </div>
+            
+            <div class="animate-on-scroll">
+                <p class="mb-3 text-white-50">Atau coba demo aplikasi tanpa download</p>
+                <a href="demo.html" class="btn btn-hero-outline px-4">
+                    <i class="bi bi-laptop me-2"></i> Coba Demo Web
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">
+                        <span class="footer-logo-text">MoneyWise</span>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-white mb-2">Dapatkan tips keuangan mingguan</p>
+                        <div class="input-group" style="max-width: 300px;">
+                            <input type="email" class="form-control" placeholder="Email Anda">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Produk</h5>
+                    <ul class="footer-links">
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Perusahaan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <div class="bg-primary p-3 rounded text-center">
+                        <h6 class="text-white mb-2">Unduh </h6>
+                        <a href="#download" class="btn btn-light btn-sm w-100 mb-2">
+                            <i class="bi bi-google-play me-1"></i> Android
+                        </a>
+                        <a href="#download" class="btn btn-light btn-sm w-100">
+                            <i class="bi bi-apple me-1"></i> iOS
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-secondary">
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                        <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Scroll Navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animasi scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Inisialisai load dan scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        const appMockup = document.querySelector('.phone-mockup');
+        if (appMockup) {
+            appMockup.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotateY(-5deg) translateY(-10px)';
+            });
+            
+            appMockup.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotateY(-10deg)';
+            });
+        }
+        
+        // CTA Tombol
+        const ctaButtons = document.querySelectorAll('.btn-hero, .cta-button, .btn-header');
+        ctaButtons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        const newsletterForm = document.querySelector('.input-group');
+        if (newsletterForm) {
+            const newsletterInput = newsletterForm.querySelector('input');
+            const newsletterButton = newsletterForm.querySelector('button');
+            
+            newsletterButton.addEventListener('click', function() {
+                if (newsletterInput.value && newsletterInput.value.includes('@')) {
+                    newsletterButton.innerHTML = '<i class="bi bi-check"></i>';
+                    newsletterButton.classList.remove('btn-primary');
+                    newsletterButton.classList.add('btn-success');
+                    newsletterInput.value = 'Terima kasih telah subscribe!';
+                    newsletterInput.disabled = true;
+                    
+                    setTimeout(() => {
+                        newsletterButton.innerHTML = 'Subscribe';
+                        newsletterButton.classList.remove('btn-success');
+                        newsletterButton.classList.add('btn-primary');
+                        newsletterInput.value = '';
+                        newsletterInput.disabled = false;
+                        newsletterInput.placeholder = 'Email Anda';
+                    }, 3000);
+                }
+            });
+        }
+        
+        function animateStats() {
+            const statsNumbers = document.querySelectorAll('.stats-number');
+            
+            statsNumbers.forEach(stat => {
+                const targetValue = parseInt(stat.textContent);
+                let currentValue = 0;
+                const increment = targetValue / 50;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= targetValue) {
+                        currentValue = targetValue;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('+') ? '+' : '');
+                }, 30);
+            });
+        }
+        
+        const statsSection = document.getElementById('stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
